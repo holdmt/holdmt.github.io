@@ -72,5 +72,23 @@
         <p>Hosted on <a href="https://pages.github.com/">GitHub Pages</a></p>
     </footer>
 
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    // Function to toggle the 'active' class when the hamburger is clicked
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Optional: Change the icon from ☰ to X when active (requires CSS or an icon font)
+        // hamburger.textContent = navLinks.classList.contains('active') ? '✖' : '☰';
+    });
+    
+    // Optional: Close menu when a link is clicked (useful for anchor links)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+    </script>
 </body>
 </html>
