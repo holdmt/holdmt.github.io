@@ -133,3 +133,55 @@ footer {
     padding: 20px;
     margin-top: 50px;
 }
+/* --- HAMBURGER MENU STYLES (for Mobile) --- */
+
+/* 1. Style the Hamburger Icon */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #2c3e50;
+    line-height: 1; /* Keep the icon vertically centered */
+}
+
+/* 2. Hide links on mobile initially (by pushing them off-screen) */
+@media (max-width: 768px) {
+    .nav-links {
+        /* Hide menu on mobile */
+        position: fixed; /* Position relative to the screen */
+        top: 60px; /* Position below the navbar */
+        right: 0;
+        height: 100%;
+        width: 60%; /* Take up 60% of the screen width */
+        background-color: #f9f9f9;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: center;
+        /* Default state: pushed off-screen to the right */
+        transform: translateX(100%); 
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+        padding: 20px 0;
+        z-index: 900;
+    }
+    
+    /* Display the Hamburger icon */
+    .hamburger {
+        display: block; 
+    }
+    
+    /* Style for when the menu is OPEN (triggered by JS) */
+    .nav-links.active {
+        transform: translateX(0); /* Bring menu back onto the screen */
+    }
+
+    /* Style the individual links for the vertical menu */
+    .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links li a {
+        display: block;
+        padding: 10px 0;
+    }
+}
